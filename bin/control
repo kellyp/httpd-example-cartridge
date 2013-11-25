@@ -1,21 +1,19 @@
-#!/bin/bash -eu
+#!/bin/bash -e
+
+PATH=/bin/:/usr/bin:$PATH
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
-source $OPENSHIFT_MOCK_DIR/mock.conf
 
 function start {
-  echo "Starting httpd cartridge"
-  /usr/sbin/httpd -f $OPENSHIFT_HTTPD_DIR/etc/httpd.conf -k start
+    /usr/sbin/httpd -f $OPENSHIFT_HTTPD_DIR/etc/httpd.conf -k start
 }
 
 function stop {
-  echo "Stopping httpd cartridge"
-  /usr/sbin/httpd -f $OPENSHIFT_HTTPD_DIR/etc/httpd.conf -k stop
+    /usr/sbin/httpd -f $OPENSHIFT_HTTPD_DIR/etc/httpd.conf -k stop
 }
 
 function restart {
-  echo "Restarting httpd cartridge"
-  /usr/sbin/httpd -f $OPENSHIFT_HTTPD_DIR/etc/httpd.conf -k restart
+    /usr/sbin/httpd -f $OPENSHIFT_HTTPD_DIR/etc/httpd.conf -k restart
 }
 
 function catchall {
